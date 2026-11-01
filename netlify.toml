@@ -1,0 +1,3 @@
+# Netlify publiserer bare mappen site/. Tester og bot-instruksjoner i repoet blir ikke offentlige.
+[build]
+  publish = "site"

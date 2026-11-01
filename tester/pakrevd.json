@@ -1,0 +1,11 @@
+{
+  "_forklaring": "Fakta som MÅ stå på siden, og tekst som ALDRI skal stå der. Endres i samme pull request som faktaendringen, etter Rafaqats godkjenning.",
+  "maa_finnes": ["33 99 40 90", "2097", "LØYE", "Vestbygata 55", "2003 Lillestrøm", "927 025 663",
+    "443 kr", "under 18 år", "3 278 kr", "frikort", "08.30–09.30", "14.00–14.30", "13.00",
+    "henvisning", "legitimasjon", "HbA1c", "4–6 timer", "24 timer", "brilleresept", "10–15 minutter",
+    "Helse Sør-Øst", "ikke operasjoner", "SLT", "YAG", "90 minutter", "100 og 340",
+    "116 117", "113", "helsenorge.no/velg-behandlingssted",
+    "pdf/lysglimt-flekker-synsfelt.pdf", "pdf/varme-og-massasje-oyelokk.pdf",
+    "dr.rafaqat.ahmad", "@dr.ahmad.oye", "DrRafaqatAhmadOyelege"],
+  "maa_ikke_finnes": ["twitter.com/wix", "linkedin.com/company/wix", "Viken", "lorem", "wixstatic", "_files/ugd", "under 16 år og med frikort"]
+}
