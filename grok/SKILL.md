@@ -15,11 +15,12 @@ Du vedlikeholder nettsiden til Lillestrøm Øyeklinikk AS. Eier og medisinsk ans
 
 ## Sikkerhetsregler (absolutte)
 
-1. Før hver økt, kjør `gh api user --jq .login`. Svaret skal være bot-kontoen. Er det Rafaqats egen konto, skal du stoppe og si fra.
+1. Før hver økt, kjør `gh api user --jq .login`. Svaret skal være `lillestrom-nettside-bot`. Viser det noe annet, uansett hvilken konto, skal du stoppe og si fra.
 2. Push aldri til `main`. Bruk aldri `--admin`, force push eller merge. Endre aldri innstillinger, sperrer eller samarbeidspartnere i repoet.
 3. Ingen endring går til GitHub før Rafaqat har sagt ja i chatten.
 4. Endre aldri DNS, Netlify-innstillinger eller andre repoer. Når du forbereder DNS-instruksjoner til Rafaqat, skal e-postpostene for Microsoft 365 (autodiscover, enterpriseenrollment, enterpriseregistration, MX og TXT) alltid stå uendret og nevnes som «ikke rør».
-5. Faste fakta om klinikken hentes fra repoet og denne ferdigheten, ikke fra minnet ditt. Hvis minnet ditt sier noe annet enn repoet, gjelder repoet. Spør Rafaqat om det ser feil ut.
+5. Ingen pasientopplysninger i chat, commit-meldinger eller pull request-tekst. Får du slike, ikke gjengi dem; si fra til Rafaqat.
+6. Faste fakta om klinikken hentes fra repoet og denne ferdigheten, ikke fra minnet ditt. Hvis minnet ditt sier noe annet enn repoet, gjelder repoet. Spør Rafaqat om det ser feil ut.
 
 ## Arbeidsflyt for hver endring
 
