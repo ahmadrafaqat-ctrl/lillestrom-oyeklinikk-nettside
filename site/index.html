@@ -19,6 +19,7 @@
 <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/atkinson-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script src="script.js" defer></script>
 <script type="application/ld+json">
@@ -31,6 +32,10 @@
   "telephone": "+47 33 99 40 90",
   "taxID": "927025663",
   "address": { "@type": "PostalAddress", "streetAddress": "Vestbygata 55", "postalCode": "2003", "addressLocality": "Lillestrøm", "addressCountry": "NO" },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "08:00", "closes": "15:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "13:00" }
+  ],
   "isAcceptingNewPatients": true,
   "availableLanguage": ["nb", "en"],
   "sameAs": ["https://www.instagram.com/dr.rafaqat.ahmad", "https://www.facebook.com/dr.rafaqat.ahmad", "https://www.youtube.com/@DrRafaqatAhmadOyelege", "https://www.tiktok.com/@dr.ahmad.oye"],
@@ -43,7 +48,7 @@
 <header class="top">
   <div class="wrap">
     <div class="top-row">
-      <a class="brand" href="#top"><img class="logo-l" src="assets/img/logo-lys.webp" width="513" height="120" alt="Lillestrøm Øyeklinikk – til toppen"><img class="logo-d" src="assets/img/logo-mork.webp" width="513" height="120" alt="Lillestrøm Øyeklinikk – til toppen"></a>
+      <a class="brand" href="#top"><picture><source srcset="assets/img/logo-mork.webp" media="(prefers-color-scheme: dark)"><img class="logo" src="assets/img/logo-lys.webp" width="513" height="120" alt="Lillestrøm Øyeklinikk – til toppen"></picture></a>
       <div class="top-actions">
         <button class="btn" id="textsize" type="button"><span aria-hidden="true" class="ts-icon">A+</span><span class="long" id="textsize-label" aria-hidden="true">Større tekst</span><span class="visually-hidden" id="textsize-sr">Tekststørrelse: normal. Trykk for større tekst.</span></button>
         <a class="btn btn-primary" href="tel:+4733994090"><span class="short">Ring oss</span><span class="long">Ring 33 99 40 90</span></a>
@@ -65,25 +70,25 @@
 <main id="top">
   <span id="innhold" tabindex="-1"></span>
   <div class="wrap hero">
-    <div class="chart">
-      <h1>
-        <span class="row r1"><span>Øyelege</span><span class="va" aria-hidden="true">0,1</span></span>
-        <span class="row r2"><span>i Lillestrøm</span><span class="va" aria-hidden="true">0,2</span></span>
-        <span class="row r3"><span>med offentlig avtale</span><span class="va" aria-hidden="true">0,4</span></span>
-      </h1>
-      <p class="row r4"><span>Du trenger henvisning fra lege eller optiker</span><span class="va" aria-hidden="true">0,6</span></p>
-      <p class="row r5"><span>Egenandel <span class="mark">443 kr</span>. Gratis under 18 år og med frikort.</span><span class="va" aria-hidden="true">0,8</span></p>
-      <p class="row r6"><span>Spesialist i øyesykdommer <a href="#om-oss">Rafaqat Ahmad</a>. Avtale med Helse Sør-Øst.</span><span class="va" aria-hidden="true">1,0</span></p>
+    <div class="intro">
+      <h1>Øyelege i Lillestrøm med offentlig avtale</h1>
+      <p class="lead">Du trenger henvisning fra lege eller optiker.</p>
+      <ul class="facts">
+        <li>Egenandel <span class="mark">443 kr</span>. Gratis under 18 år og med frikort.</li>
+        <li>Spesialist i øyesykdommer <a href="#om-oss">Rafaqat Ahmad</a>. Avtale med Helse Sør-Øst.</li>
+      </ul>
     </div>
 
     <aside class="callcard" aria-labelledby="ring-title">
       <h2 id="ring-title" class="h-card">Ring oss</h2>
       <p class="status" id="phone-status" data-open=""><span class="dot" aria-hidden="true"></span><span id="phone-status-text">Telefontiden står under</span></p>
       <a class="bignum" href="tel:+4733994090">33 99 40 90</a>
+      <p class="h-label"><strong>Telefontid:</strong></p>
       <dl class="hours">
         <dt>Man–tor</dt><dd><span class="nw">08.30–09.30</span> og <span class="nw">14.00–14.30</span></dd>
         <dt>Fredag</dt><dd>08.30–09.30</dd>
       </dl>
+      <p class="small">Åpningstider: man–tor <span class="nw">08.00–15.30</span>, fredag <span class="nw">08.00–13.00</span>.</p>
       <div class="sms">
         <p><strong>SMS når som helst</strong></p>
         <p>Skriv <strong class="code">LØYE</strong> og meldingen din, send til <strong class="code">2097</strong>.</p>
@@ -333,7 +338,7 @@
       <div class="prose stack">
         <p>Lillestrøm Øyeklinikk is an eye specialist clinic with a public agreement with Helse Sør-Øst. You need a referral from your GP or optician. We do not perform surgery at the clinic.</p>
         <p>The patient fee is NOK 443 (2026). It is free for children and young people under 18 and for patients with an exemption card (frikort).</p>
-        <p>Phone 33 99 40 90: Monday–Thursday 08.30–09.30 and 14.00–14.30, Friday 08.30–09.30. Need an interpreter? Tell us before your appointment. If you have diabetes, bring your latest HbA1c result.</p>
+        <p>Phone 33 99 40 90: Monday–Thursday 08.30–09.30 and 14.00–14.30, Friday 08.30–09.30. Opening hours: Monday–Thursday 08.00–15.30, Friday 08.00–13.00. Need an interpreter? Tell us before your appointment. If you have diabetes, bring your latest HbA1c result.</p>
         <p>Free parking for visitors for 90 minutes. Bus 100 and 340 stop about 200 metres away.</p>
         <p>Sudden loss of vision, new flashes or a shadow in your vision: call the emergency room (legevakt) on 116 117. Life-threatening emergency: 113.</p>
       </div>
@@ -357,7 +362,7 @@
         <dt>Fredag</dt><dd>08.30–09.30</dd>
       </dl>
       <p class="mt-8">SMS: LØYE + melding til 2097</p>
-      <p class="mt-8">Klinikken stenger kl. 13.00 på fredager.</p>
+      <p class="mt-8">Åpningstider: man–tor <span class="nw">08.00–15.30</span>, fredag <span class="nw">08.00–13.00</span>.</p>
     </div>
     <div>
       <h2>Følg øyelegen</h2>
