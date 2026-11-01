@@ -8,8 +8,9 @@ description: Vedlikehold av nettsiden til Lillestrøm Øyeklinikk (lillestromoye
 Du vedlikeholder nettsiden til Lillestrøm Øyeklinikk AS. Eier og medisinsk ansvarlig er øyelege Rafaqat Ahmad.
 **Du foreslår endringer som pull requests. Det er alltid Rafaqat som godkjenner og publiserer.**
 
-- **Repo:** `lillestrom-oyeklinikk-nettside` på GitHub.
-- **Publisering:** Netlify publiserer mappen `site/` når `main` endres, og lager en forhåndsvisning for hver pull request.
+- **Repo:** `ahmadrafaqat-ctrl/lillestrom-oyeklinikk-nettside` på GitHub. Repoet er **offentlig**: det skal aldri ligge hemmeligheter, passord, tokens, pasientopplysninger eller interne dokumenter i det.
+- **Hovedadresse:** https://www.lillestromoyeklinikk.no (adressen uten www sender videre dit).
+- **Publisering:** Netlify-prosjektet `oyeklinikk` publiserer mappen `site/` når `main` endres, og lager en forhåndsvisning for hver pull request.
 - **Domene:** ligger hos Domeneshop. Det rører du aldri.
 
 ## Sikkerhetsregler (absolutte)
@@ -17,7 +18,7 @@ Du vedlikeholder nettsiden til Lillestrøm Øyeklinikk AS. Eier og medisinsk ans
 1. Før hver økt, kjør `gh api user --jq .login`. Svaret skal være bot-kontoen. Er det Rafaqats egen konto, skal du stoppe og si fra.
 2. Push aldri til `main`. Bruk aldri `--admin`, force push eller merge. Endre aldri innstillinger, sperrer eller samarbeidspartnere i repoet.
 3. Ingen endring går til GitHub før Rafaqat har sagt ja i chatten.
-4. Endre aldri DNS, Netlify-innstillinger eller andre repoer.
+4. Endre aldri DNS, Netlify-innstillinger eller andre repoer. Når du forbereder DNS-instruksjoner til Rafaqat, skal e-postpostene for Microsoft 365 (autodiscover, enterpriseenrollment, enterpriseregistration, MX og TXT) alltid stå uendret og nevnes som «ikke rør».
 5. Faste fakta om klinikken hentes fra repoet og denne ferdigheten, ikke fra minnet ditt. Hvis minnet ditt sier noe annet enn repoet, gjelder repoet. Spør Rafaqat om det ser feil ut.
 
 ## Arbeidsflyt for hver endring
@@ -119,12 +120,15 @@ Søk i hele `site/index.html` og endre alle forekomster. Oppdater også `tester/
   - Legg ikke til nye farger uten grunn.
 - **Logo:** `logo-lys.webp` og `logo-mork.webp` byttes automatisk etter lys eller mørk modus.
 
+## Personvernerklæring
+
+Finnes ikke ennå. Lag utkast bare når Rafaqat ber om det, som pull request etter vanlig arbeidsflyt. Bygg bare på fakta han oppgir (for eksempel hvem som leverer SMS-tjenesten 2097, e-post via Microsoft 365 og Netlify som vertskap). Spør om det som mangler, i stedet for å anta.
+
 ## Fast kalender
 
-- **2. januar (fast rutine):** sjekk egenandel for spesialist og egenandelstaket på helsenorge.no.
-  - Har noe endret seg: forbered endringen på en egen gren og kjør testen. Send Rafaqat Før og Etter med kilde, og spør om du skal lage pull request.
-  - Er alt uendret: si kort fra om det.
-- **1. juli:** sjekk på samme måte om Helfo har endret egenandeler eller regler midt i året.
+- **2. januar (fast rutine):** sjekk egenandel for spesialist og egenandelstaket på helsenorge.no og helfo.no. Send Rafaqat funn med kilde. Lag ikke gren eller pull request før han har sagt ja.
+  - Foreslå **alltid** oppdatering av årstallene, også om beløpene er uendret: «gjelder for [år]» i bunnen, «(år)» ved egenandel og frikort i Pris og praktisk, den engelske teksten og `tester/pakrevd.json`.
+- **1. juli:** sjekk på samme måte om Helfo har endret egenandeler eller regler midt i året. Bare melding med funn og kilde, ingen gren før ja.
 - **Hvert halvår:** gå gjennom tjenester, telefontid og ansatte med Rafaqat.
 
 ## Sjekkliste før du ber om godkjenning
