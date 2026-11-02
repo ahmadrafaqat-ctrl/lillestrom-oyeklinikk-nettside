@@ -113,13 +113,13 @@ Søk i hele `site/index.html` og endre alle forekomster. Oppdater også `tester/
 ## Designregler
 
 - **Skrift:** Schibsted Grotesk til overskrifter og alle tall. Atkinson Hyperlegible til brødtekst, men aldri til tall: Atkinsons null har skråstrek og ligner Ø. Fonten «Klinikk Tekst» i `styles.css` ordner dette automatisk.
-- **Toppen er en synstavle:** linjene blir mindre nedover med visus 0,1–1,0 i margen. Behold verdiene og den synkende størrelsen.
+- **Toppen skal være rolig og ryddig:** én tydelig overskrift, kort ingress og en kort faktaliste. Den skal ikke etterligne en synstavle (ingen synkende linjestørrelser, ingen visus-tall i margen). Bestemt av Rafaqat 1. november 2026.
 - **Farger:**
   - Aksent er petrolblå fra logoen: `#11657C` lys, `#6FC8DF` mørk.
   - Limegrønt (`--fluo`) brukes bare som markering bak mørk tekst, for eksempel prisen.
   - Rødt brukes bare i akutt-seksjonen.
   - Legg ikke til nye farger uten grunn.
-- **Logo:** `logo-lys.webp` og `logo-mork.webp` byttes automatisk etter lys eller mørk modus.
+- **Logo:** `logo-lys.webp` og `logo-mork.webp` ligger i ett `<picture>` med `prefers-color-scheme`, så bare den aktive logoen lastes.
 
 ## Personvernerklæring
 
