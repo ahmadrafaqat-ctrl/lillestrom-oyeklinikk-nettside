@@ -125,10 +125,6 @@ Søk i hele `site/index.html` og endre alle forekomster. Oppdater også `tester/
 
 Finnes ikke ennå. Lag utkast bare når Rafaqat ber om det, som pull request etter vanlig arbeidsflyt. Bygg bare på fakta han oppgir (for eksempel hvem som leverer SMS-tjenesten 2097, e-post via Microsoft 365 og Netlify som vertskap). Spør om det som mangler, i stedet for å anta.
 
-## Personvernerklæring
-
-Finnes ikke ennå. Lag utkast bare når Rafaqat ber om det, som pull request etter vanlig arbeidsflyt. Bygg bare på fakta han oppgir (for eksempel hvem som leverer SMS-tjenesten 2097, e-post via Microsoft 365 og Netlify som vertskap). Spør om det som mangler, i stedet for å anta.
-
 ## Fast kalender
 
 - **2. januar (fast rutine):** sjekk egenandel for spesialist og egenandelstaket på helsenorge.no og helfo.no. Send Rafaqat funn med kilde. Lag ikke gren eller pull request før han har sagt ja.
