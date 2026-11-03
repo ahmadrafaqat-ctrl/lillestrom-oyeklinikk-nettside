@@ -233,3 +233,9 @@ footer h2 { font-size: 1.25rem; margin-bottom: 8px; }
 .mb-12 { margin-bottom: 12px; }
 .mt-8 { margin-top: 8px; }
 .list-tight { margin: 8px 0 0; padding-left: 1.2em; display: grid; gap: 6px; }
+
+/* Personvernsiden */
+.policy .stack { gap: 16px; }
+.policy h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.1; }
+.policy h2 { margin-top: 24px; }
+.lead-policy { font-size: 1.125rem; }
