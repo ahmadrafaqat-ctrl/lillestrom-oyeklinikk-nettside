@@ -36,6 +36,7 @@
   function render() {
     var s = phoneStatus(new Date());
     var el = document.getElementById("phone-status");
+    if (!el) return;
     el.setAttribute("data-open", String(s.open));
     document.getElementById("phone-status-text").textContent = s.text;
   }
@@ -54,7 +55,8 @@
     gradvis: ["ref", "Vanlig henvisning", "Snakk med fastlegen eller optikeren din. De kan henvise deg til oss."]
   };
   var result = document.getElementById("guide-result");
-  document.getElementById("guide").addEventListener("change", function (e) {
+  var guide = document.getElementById("guide");
+  if (guide) guide.addEventListener("change", function (e) {
     var a = ADVICE[e.target.value]; if (!a) return;
     result.setAttribute("data-level", a[0]);
     result.innerHTML = "<h3>" + a[1] + "</h3><p>" + a[2] + "</p>";
@@ -64,7 +66,7 @@
       result.scrollIntoView({ block: "nearest", behavior: calm ? "auto" : "smooth" });
     }
   });
-  document.getElementById("guide").addEventListener("submit", function (e) { e.preventDefault(); });
+  if (guide) guide.addEventListener("submit", function (e) { e.preventDefault(); });
 
   // Tekststørrelse
   var sizes = ["", "l", "xl"], labels = ["normal", "stor", "størst"], next = ["Større tekst", "Enda større", "Vanlig tekst"], i = 0;
