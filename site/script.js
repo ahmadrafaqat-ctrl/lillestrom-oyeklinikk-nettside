@@ -5,6 +5,10 @@
   function setHead() { document.documentElement.style.setProperty("--head-h", head.offsetHeight + "px"); }
   setHead();
   if (window.ResizeObserver) new ResizeObserver(setHead).observe(head); else window.addEventListener("resize", setHead);
+  // Midlertidig stengt-melding: skjul fra og med mandag 16. november 2026, norsk tid
+  var stengt = document.getElementById("stengt-melding");
+  if (stengt && Date.now() >= Date.parse("2026-11-16T00:00:00+01:00")) stengt.hidden = true;
+
   // Telefontid (Europe/Oslo). Minutter fra midnatt.
   var SLOTS = { 1: [[510, 570], [840, 870]], 2: [[510, 570], [840, 870]], 3: [[510, 570], [840, 870]], 4: [[510, 570], [840, 870]], 5: [[510, 570]] };
   var DAYS = ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"];
