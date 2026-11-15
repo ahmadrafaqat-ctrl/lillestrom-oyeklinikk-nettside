@@ -120,7 +120,7 @@ p { margin: 0; }
 .hours dd { margin: 0; }
 .nw { white-space: nowrap; }
 
-/* Midlertidig stengt-melding (fjernes fra 16. november 2026) */
+/* Midlertidig stengt-melding (fjernes fra 24. november 2026) */
 .stengt-melding { background: var(--warn-soft); border-block: 1px solid var(--line); }
 .stengt-melding .wrap { padding-block: 16px; }
 .stengt-melding p { margin: 0; font-family: var(--display); font-weight: 700; color: var(--warn); font-size: 1.125rem; }
