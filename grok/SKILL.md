@@ -95,6 +95,7 @@ Søk i hele `site/index.html` og endre alle forekomster. Oppdater også `tester/
 - **Egenandel og frikort:** toppen (rad 0,8), Pris og praktisk, engelsk tekst, `<meta name="description">`, `og:description` og bunnen («gjelder for 2026»).
 - **Telefontid:** «Ring oss»-kortet, bunnen, engelsk tekst, `SLOTS` i `site/script.js` og testtilfellene `TELEFONTID` i `tester/test_nettside.py`.
 - **Telefonnummer:** toppen, «Ring oss»-kortet, akutt-seksjonen, bunnen, engelsk tekst og JSON-LD.
+- **Stengte dager:** meldingen `#stengt-melding` i `index.html`, datoen meldingen skjules fra i `site/script.js`, og `STENGT` i `site/script.js`. Glemmer du `STENGT`, sier «Ring oss»-kortet «Åpen nå» på en stengt dag.
 
 ## Regler for innhold
 
@@ -131,6 +132,7 @@ Finnes ikke ennå. Lag utkast bare når Rafaqat ber om det, som pull request ett
   - Foreslå **alltid** oppdatering av årstallene, også om beløpene er uendret: «gjelder for [år]» i bunnen, «(år)» ved egenandel og frikort i Pris og praktisk, den engelske teksten og `tester/pakrevd.json`.
 - **1. juli:** sjekk på samme måte om Helfo har endret egenandeler eller regler midt i året. Bare melding med funn og kilde, ingen gren før ja.
 - **Hvert halvår:** gå gjennom tjenester, telefontid og ansatte med Rafaqat.
+- **1. desember:** spør Rafaqat om klinikken holder stengt julaften, nyttårsaften eller andre dager i jula. Datoene legges i `STENGT` i `site/script.js`. Helligdagene trenger du ikke legge inn.
 
 ## Sjekkliste før du ber om godkjenning
 

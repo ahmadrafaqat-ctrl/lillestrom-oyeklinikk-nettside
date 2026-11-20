@@ -11,25 +11,49 @@
 
   // Telefontid (Europe/Oslo). Minutter fra midnatt.
   var SLOTS = { 1: [[510, 570], [840, 870]], 2: [[510, 570], [840, 870]], 3: [[510, 570], [840, 870]], 4: [[510, 570], [840, 870]], 5: [[510, 570]] };
+  // Dager klinikken er stengt i tillegg til helligdagene (norsk dato, ÅÅÅÅ-MM-DD).
+  // Legg inn datoen her når klinikken stenger en dag, og ta bort gamle datoer.
+  var STENGT = ["2026-11-20", "2026-11-23"];
   var DAYS = ["søndag", "mandag", "tirsdag", "onsdag", "torsdag", "fredag", "lørdag"];
+  var MONTHS = ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"];
   var WD = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
   function osloParts(date) {
-    var f = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Oslo", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false });
+    var f = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Oslo", weekday: "short", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false });
     var p = {}; f.formatToParts(date).forEach(function (x) { p[x.type] = x.value; });
-    return { day: WD[p.weekday], min: (parseInt(p.hour, 10) % 24) * 60 + parseInt(p.minute, 10) };
+    return { day: WD[p.weekday], min: (parseInt(p.hour, 10) % 24) * 60 + parseInt(p.minute, 10), y: +p.year, m: +p.month, d: +p.day };
+  }
+  // Kalenderdagen n dager frem. Regnes uten klokkeslett, så sommertid ikke flytter datoen.
+  function dayAhead(now, n) { return new Date(Date.UTC(now.y, now.m - 1, now.d + n)); }
+  // Offentlige helligdager i Norge. De bevegelige regnes ut fra påskedagen.
+  var HOLIDAYS = {};
+  function holidays(y) {
+    if (HOLIDAYS[y]) return HOLIDAYS[y];
+    var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4;
+    var f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var easter = Date.UTC(y, Math.floor((h + l - 7 * m + 114) / 31) - 1, (h + l - 7 * m + 114) % 31 + 1);
+    var days = [Date.UTC(y, 0, 1), Date.UTC(y, 4, 1), Date.UTC(y, 4, 17), Date.UTC(y, 11, 25), Date.UTC(y, 11, 26)];
+    [-3, -2, 1, 39, 50].forEach(function (n) { days.push(easter + n * 864e5); }); // skjærtorsdag, langfredag, 2. påskedag, Kristi himmelfart, 2. pinsedag
+    return (HOLIDAYS[y] = days.map(function (t) { return new Date(t).toISOString().slice(0, 10); }));
+  }
+  function isClosed(dt, stengt) {
+    var key = dt.toISOString().slice(0, 10);
+    return stengt.indexOf(key) > -1 || holidays(dt.getUTCFullYear()).indexOf(key) > -1;
   }
   function hhmm(m) { var h = Math.floor(m / 60), mm = m % 60; return (h < 10 ? "0" : "") + h + "." + (mm < 10 ? "0" : "") + mm; }
-  function phoneStatus(date) {
+  // stengt kan settes i testen; ellers brukes listen STENGT over.
+  function phoneStatus(date, stengt) {
+    stengt = stengt || STENGT;
     var now = osloParts(date);
-    var today = SLOTS[now.day] || [];
+    var today = isClosed(dayAhead(now, 0), stengt) ? [] : (SLOTS[now.day] || []);
     for (var i = 0; i < today.length; i++) {
       if (now.min >= today[i][0] && now.min < today[i][1]) return { open: true, text: "Åpen nå, til kl. " + hhmm(today[i][1]) };
     }
-    for (var d = 0; d < 8; d++) {
-      var day = (now.day + d) % 7, slots = SLOTS[day] || [];
+    for (var n = 0; n < 62; n++) {
+      var dt = dayAhead(now, n), day = dt.getUTCDay(), slots = isClosed(dt, stengt) ? [] : (SLOTS[day] || []);
       for (var j = 0; j < slots.length; j++) {
-        if (d > 0 || slots[j][0] > now.min) {
-          var when = d === 0 ? "i dag" : d === 1 ? "i morgen" : DAYS[day];
+        if (n > 0 || slots[j][0] > now.min) {
+          var when = n === 0 ? "i dag" : n === 1 ? "i morgen" : n < 7 ? DAYS[day] : DAYS[day] + " " + dt.getUTCDate() + ". " + MONTHS[dt.getUTCMonth()];
           return { open: false, text: "Stengt nå. Åpner " + when + " kl. " + hhmm(slots[j][0]) };
         }
       }
