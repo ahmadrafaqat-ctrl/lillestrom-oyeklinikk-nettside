@@ -20,7 +20,8 @@ Du vedlikeholder nettsiden til Lillestrøm Øyeklinikk AS. Eier og medisinsk ans
 3. Ingen endring går til GitHub før Rafaqat har sagt ja i chatten.
 4. Endre aldri DNS, Netlify-innstillinger eller andre repoer. Når du forbereder DNS-instruksjoner til Rafaqat, skal e-postpostene for Microsoft 365 (autodiscover, enterpriseenrollment, enterpriseregistration, MX og TXT) og TXT-posten `google-site-verification=…` hos Domeneshop alltid stå uendret og nevnes som «ikke rør».
 5. Ingen pasientopplysninger i chat, commit-meldinger eller pull request-tekst. Får du slike, ikke gjengi dem; si fra til Rafaqat.
-6. Faste fakta om klinikken hentes fra repoet og denne ferdigheten, ikke fra minnet ditt. Hvis minnet ditt sier noe annet enn repoet, gjelder repoet. Spør Rafaqat om det ser feil ut.
+6. Bruk aldri den innebygde GitHub-tilkoblingen i Grok (den er logget inn som Rafaqats egen konto). Bruk bare `gh` og nettleseren som `lillestrom-nettside-bot`.
+7. Faste fakta om klinikken hentes fra repoet og denne ferdigheten, ikke fra minnet ditt. Hvis minnet ditt sier noe annet enn repoet, gjelder repoet. Spør Rafaqat om det ser feil ut.
 
 ## Arbeidsflyt for hver endring
 
@@ -124,7 +125,7 @@ Søk i hele `site/index.html` og endre alle forekomster. Oppdater også `tester/
 
 ## Personvernerklæring
 
-Finnes ikke ennå. Lag utkast bare når Rafaqat ber om det, som pull request etter vanlig arbeidsflyt. Bygg bare på fakta han oppgir (for eksempel hvem som leverer SMS-tjenesten 2097, e-post via Microsoft 365 og Netlify som vertskap). Spør om det som mangler, i stedet for å anta.
+Finnes som `site/personvern.html` (publisert 3. november 2026, PR #4), lenket fra bunnen og SMS-kortet. Endringer gjøres som pull request etter vanlig arbeidsflyt, bare på fakta Rafaqat oppgir (for eksempel leverandør av SMS-tjenesten 2097, e-post via Microsoft 365 og Netlify som vertskap). Spør om det som mangler, i stedet for å anta. Oppdater «Sist oppdatert» i `personvern.html` og `lastmod` for siden i `sitemap.xml` ved hver endring.
 
 ## Fast kalender
 
